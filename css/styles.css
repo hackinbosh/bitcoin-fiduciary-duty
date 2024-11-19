@@ -1,0 +1,215 @@
+/* styles.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap');
+
+/* Root Variables for Colors */
+:root {
+  --primary-color: #F7931A; /* Bitcoin Orange */
+  --secondary-color: #0A1F44; /* Navy Blue */
+  --text-color: #333333;
+  --background-color: #FFFFFF;
+  --light-gray: #f8f9fa;
+  --dark-gray: #1a1a1a;
+}
+
+/* Global Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--dark-gray);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d97908;
+  text-decoration: underline;
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: var(--primary-color);
+  padding: 1rem;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--background-color) !important;
+}
+
+.navbar-nav .nav-link {
+  color: var(--background-color) !important;
+  margin-left: 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f0f0f0 !important;
+}
+
+/* Jumbotron/Header */
+.jumbotron {
+  background-image: url('assets/header-bg.jpg'); /* Ensure this path is correct */
+  background-size: cover;
+  background-position: center;
+  color: var(--background-color);
+  text-align: center;
+  padding: 6rem 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.jumbotron::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 31, 68, 0.7); /* Overlay with secondary color */
+}
+
+.jumbotron .container {
+  position: relative;
+  z-index: 1;
+}
+
+.jumbotron h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.jumbotron p.lead {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.jumbotron .btn {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--background-color);
+  font-weight: 700;
+}
+
+.jumbotron .btn:hover {
+  background-color: #d97908;
+  border-color: #d97908;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.btn-primary:hover {
+  background-color: #d97908;
+  border-color: #d97908;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--background-color);
+}
+
+.btn-secondary:hover {
+  background-color: #081a38;
+  border-color: #081a38;
+}
+
+/* Template Content */
+.template-content {
+  background-color: var(--light-gray);
+  padding: 2rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.template-content h3 {
+  color: var(--secondary-color);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.template-content strong {
+  color: var(--secondary-color);
+}
+
+.template-content em {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-style: normal;
+}
+
+.template-content a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.template-content a:hover {
+  color: #d97908;
+}
+
+/* Footer */
+footer {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .jumbotron {
+    padding: 4rem 1rem;
+  }
+
+  .jumbotron h1 {
+    font-size: 2rem;
+  }
+
+  .jumbotron p.lead {
+    font-size: 1.1rem;
+  }
+
+  .template-content {
+    padding: 1rem;
+  }
+}
