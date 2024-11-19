@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bitcoin Fiduciary Duty - Demo Page</title>
+  <!-- Include Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <!-- Custom CSS -->
+  <style>
+    /* Styles for Progress Bar */
+    #progressBarContainer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #f0f0f0;
+      height: 5px;
+      z-index: 9999;
+    }
+    #progressBar {
+      height: 5px;
+      background: #F7931A; /* Bitcoin Orange */
+      width: 0%;
+    }
+    /* Styles for Scroll-to-Top Button */
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      background-color: #F7931A;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    /* Styles for Light/Dark Mode */
+    body.light-mode {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+    /* Styles for Bitcoin Price */
+    .bitcoin-price {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    /* Styles for FAQ Accordion */
+    .faq-question {
+      cursor: pointer;
+      background-color: #f8f9fa;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      width: 100%;
+      padding: 15px;
+    }
+    .faq-answer {
+      padding: 0 15px;
+      display: none;
+      background-color: white;
+    }
+    /* Styles for Testimonials Carousel */
+    .testimonial-carousel .carousel-item {
+      text-align: center;
+      padding: 30px;
+    }
+    /* Styles for Filter Buttons */
+    .filter-buttons {
+      margin-bottom: 20px;
+    }
+    .filter-buttons button {
+      margin-right: 10px;
+    }
+  </style>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" />
+</head>
+<body class="light-mode">
+  <!-- Progress Bar -->
+  <div id="progressBarContainer">
+    <div id="progressBar"></div>
+  </div>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scrollTopBtn" title="Go to top">↑</button>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Bitcoin Fiduciary Duty</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a class="nav-link" href="#">Demo Page</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container my-5">
+    <!-- Bitcoin Price Ticker -->
+    <div class="bitcoin-price">
+      Current Bitcoin Price: <span id="btcPrice">$0.00</span>
+    </div>
+
+    <!-- Light/Dark Mode Toggle -->
+    <button id="themeToggle" class="btn btn-secondary my-3">Toggle Dark Mode</button>
+
+    <!-- Proposal Customization Form -->
+    <h2>Customize Your Shareholder Proposal</h2>
+    <form id="proposalForm">
+      <div class="form-group">
+        <label for="yourName">Your Name:</label>
+        <input type="text" class="form-control" id="yourName" required />
+      </div>
+      <div class="form-group">
+        <label for="companyName">Company Name:</label>
+        <input type="text" class="form-control" id="companyName" required />
+      </div>
+      <div class="form-group">
+        <label for="date">Date (MM/DD/YYYY):</label>
+        <input type="date" class="form-control" id="date" required />
+      </div>
+      <!-- Add more input fields as needed -->
+      <button type="submit" class="btn btn-primary">Generate Proposal</button>
+    </form>
+
+    <!-- Customized Proposal Display -->
+    <div id="customProposal" class="mt-5">
+      <!-- The customized proposal will be displayed here -->
+    </div>
+
+    <!-- FAQ Section -->
+    <h2 class="mt-5">Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <button class="faq-question">What is a shareholder proposal?</button>
+      <div class="faq-answer">
+        <p>A shareholder proposal is a recommendation or requirement that a company and/or its board of directors take action, which is intended to be presented at a meeting of the company's shareholders.</p>
+      </div>
+
+      <button class="faq-question">How do I submit a proposal?</button>
+      <div class="faq-answer">
+        <p>You can submit a proposal by following the guidelines outlined in the company's proxy statement and ensuring you meet all regulatory requirements.</p>
+      </div>
+
+      <!-- Add more FAQs as needed -->
+    </div>
+
+    <!-- Testimonials Carousel -->
+    <h2 class="mt-5">Testimonials</h2>
+    <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <p>"This template made submitting a shareholder proposal so much easier!" - User A</p>
+        </div>
+        <div class="carousel-item">
+          <p>"Great resources and guidance throughout the process." - User B</p>
+        </div>
+        <!-- Add more testimonials as needed -->
+      </div>
+      <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <!-- Resource Filtering -->
+    <h2 class="mt-5">Resources</h2>
+    <div class="filter-buttons">
+      <button class="btn btn-outline-primary" data-filter="all">All</button>
+      <button class="btn btn-outline-primary" data-filter="regulatory">Regulatory</button>
+      <button class="btn btn-outline-primary" data-filter="financial">Financial</button>
+      <!-- Add more categories as needed -->
+    </div>
+    <div class="resource-list">
+      <div class="resource-item" data-category="regulatory">
+        <h5>SEC Guidelines on Shareholder Proposals</h5>
+        <p>Official guidelines from the SEC.</p>
+      </div>
+      <div class="resource-item" data-category="financial">
+        <h5>Understanding Bitcoin's Volatility</h5>
+        <p>An article discussing the risks associated with Bitcoin's price fluctuations.</p>
+      </div>
+      <!-- Add more resources as needed -->
+    </div>
+
+    <!-- Contact Form -->
+    <h2 class="mt-5">Contact Us</h2>
+    <form id="contactForm" action="https://formspree.io/f/yourFormID" method="POST">
+      <div class="form-group">
+        <label for="userName">Name:</label>
+        <input type="text" class="form-control" id="userName" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="userEmail">Email:</label>
+        <input type="email" class="form-control" id="userEmail" name="_replyto" required />
+      </div>
+      <div class="form-group">
+        <label for="userMessage">Message:</label>
+        <textarea class="form-control" id="userMessage" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center mt-5">
+    <div class="container">
+      <p>&copy; 2024 Bitcoin Fiduciary Duty. All rights reserved.</p>
+      <p>
+        Disclaimer: This website provides general information and templates. It does not constitute legal advice. Please consult a professional attorney before submitting any shareholder proposals.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Include jQuery and Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  ></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    // Progress Bar Script
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      document.getElementById('progressBar').style.width = scrollPercent + '%';
+    });
+
+    // Scroll-to-Top Button Script
+    window.onscroll = function() { scrollFunction(); };
+
+    function scrollFunction() {
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollTopBtn.style.display = 'block';
+      } else {
+        scrollTopBtn.style.display = 'none';
+      }
+    }
+
+    document.getElementById('scrollTopBtn').addEventListener('click', function() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+
+    // Light/Dark Mode Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      document.body.classList.toggle('light-mode');
+    });
+
+    // Bitcoin Price Ticker
+    function fetchBitcoinPrice() {
+      fetch('https://api.coindesk.com/v1/bpi/currentprice/USD.json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('btcPrice').innerText = '$' + data.bpi.USD.rate;
+        });
+    }
+    // Fetch price on page load and then every minute
+    fetchBitcoinPrice();
+    setInterval(fetchBitcoinPrice, 60000);
+
+    // Proposal Customization Script
+    document.getElementById('proposalForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const yourName = document.getElementById('yourName').value;
+      const companyName = document.getElementById('companyName').value;
+      const date = document.getElementById('date').value;
+
+      // Template Content
+      let templateContent = `
+        <strong>${yourName}</strong><br />
+        <strong>Your Address</strong><br />
+        <strong>City, State, ZIP Code</strong><br />
+        <strong>Your Email Address</strong><br />
+        <strong>${date}</strong><br /><br />
+        <strong>VIA CERTIFIED MAIL</strong><br /><br />
+        <strong>Corporate Secretary</strong><br />
+        <strong>${companyName}</strong><br />
+        <strong>Company Address</strong><br />
+        <strong>City, State, ZIP Code</strong><br /><br />
+        <p>Dear Corporate Secretary,</p>
+        <p>
+          As a shareholder of <strong>${companyName}</strong>, I am submitting the enclosed shareholder proposal for inclusion in the proxy statement for the upcoming Annual Meeting of Shareholders.
+        </p>
+        <p>Sincerely,</p>
+        <p>${yourName}</p>
+      `;
+      // Display the customized proposal
+      document.getElementById('customProposal').innerHTML = templateContent;
+    });
+
+    // FAQ Accordion Script
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach((question) => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        if (answer.style.display === 'block') {
+          answer.style.display = 'none';
+        } else {
+          answer.style.display = 'block';
+        }
+      });
+    });
+
+    // Resource Filtering Script
+    const filterButtons = document.querySelectorAll('.filter-buttons button');
+    const resourceItems = document.querySelectorAll('.resource-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        resourceItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Contact Form Validation (basic example)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      // Since we are using Formspree, validation is handled automatically
+      alert('Your message has been sent!');
+    });
+  </script>
+</body>
+</html>
